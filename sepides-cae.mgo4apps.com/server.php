@@ -4,6 +4,7 @@
  * Laravel - A PHP Framework For Web Artisans
  *
  * By Nacho 2
+ * By Nacho 3
  * @package  Laravel
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */

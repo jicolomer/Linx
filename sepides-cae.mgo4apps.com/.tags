@@ -1,0 +1,624 @@
+DocumentosEmpleadosExternosController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^class DocumentosEmpleadosExternosController extends Controller$/;"	class	line:20
+index	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    public function index()$/;"	function	line:22
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    public function create(Request $request)$/;"	function	line:27
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $return_to = $this->getReturnTo($request);$/;"	variable	line:29
+emp_ext_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $emp_ext_id = $this->getEmpExtId($request);$/;"	variable	line:30
+emp_ext_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $emp_ext_nombre = $this->getEmpExtNombre($emp_ext_id);$/;"	variable	line:31
+tipos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $tipos = TipoDocumento::lists('nombre', 'id');$/;"	variable	line:32
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $tags = [];$/;"	variable	line:33
+emp_ext	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $emp_ext = EmpleadoExterno::where('activo', '1')$/;"	variable	line:35
+empleados	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $empleados = [];$/;"	variable	line:38
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    public function store(Request $request)$/;"	function	line:46
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $fields = $request->all();$/;"	variable	line:48
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:50
+api_request	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $api_request = Request::create('\/storage\/ficheros\/add', 'POST', $fields);$/;"	variable	line:59
+response	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $response = Route::dispatch($api_request);$/;"	variable	line:60
+data	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $data = json_decode($response->getContent());$/;"	variable	line:61
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $documento = DocumentoEmpleadoExterno::create($fields);$/;"	variable	line:63
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $return_to = $this->getReturnTo($request);$/;"	variable	line:69
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    public function edit(Request $request, $id)$/;"	function	line:86
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $return_to = null;$/;"	variable	line:88
+emp_ext_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $emp_ext_id = $this->getEmpExtId($request);$/;"	variable	line:89
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $return_to = route('empleados-externos.edit', $emp_ext_id) . '#tab_2';$/;"	variable	line:91
+tipos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $tipos = TipoDocumento::lists('nombre', 'id');$/;"	variable	line:94
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $documento = DocumentoEmpleadoExterno::findOrFail($id);$/;"	variable	line:95
+filename	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $filename = Fichero::findOrFail($documento->file_id)->original_filename;$/;"	variable	line:96
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $tags = $documento->tagListNormalized;$/;"	variable	line:97
+emp_ext_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $emp_ext_nombre = $this->getEmpExtNombre($documento->empleado_externo_id);$/;"	variable	line:98
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    public function update(Request $request, $id)$/;"	function	line:103
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $fields = $request->all();$/;"	variable	line:105
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $validator = $this->validator($fields, false);$/;"	variable	line:107
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $documento = DocumentoEmpleadoExterno::findOrFail($id);$/;"	variable	line:114
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $return_to = $this->getReturnTo($request);$/;"	variable	line:121
+rowsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    public function rowsData(Request $request)$/;"	function	line:129
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $documentos = DocumentoEmpleadoExterno::join('empleados_externos', 'documentos_empleados_externos.empleado_externo_id', '=', 'empleados_externos.id')$/;"	variable	line:131
+empleado_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $empleado_id = null;$/;"	variable	line:137
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $datatable = $this->defaultDatatable($documentos, $empleado_id);$/;"	variable	line:141
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^                    $documentos = $documentos->withAllTags($search_term);$/;"	variable	line:146
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^                    $datatable = $this->defaultDatatable($documentos);$/;"	variable	line:147
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^                    $datatable = $datatable->filter(function ($query) use ($request) {} );$/;"	variable	line:148
+defaultDatatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    private function defaultDatatable($documentos, $empleado_id)$/;"	function	line:158
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $datatable = Datatables::of($documentos)$/;"	variable	line:160
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $datatable = $datatable->addColumn('actions', function ($documento) {$/;"	variable	line:164
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $datatable = $datatable->addColumn('actions', function ($documento) {$/;"	variable	line:171
+tagsColumn	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    private function tagsColumn($documento)$/;"	function	line:182
+html	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $html = '';$/;"	variable	line:184
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    protected function validator(array $data, $file_required = true)$/;"	function	line:191
+file_required	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    protected function validator(array $data, $file_required = true)$/;"	variable	line:191
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $validator = Validator::make($data, [$/;"	variable	line:193
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $fields_names = [$/;"	variable	line:200
+getReturnTo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    private function getReturnTo(Request $request)$/;"	function	line:211
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $return_to = null;$/;"	variable	line:213
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $return_to = $request->return_to;$/;"	variable	line:215
+getEmpExtId	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    private function getEmpExtId(Request $request)$/;"	function	line:221
+emp_ext_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $emp_ext_id = null;$/;"	variable	line:223
+emp_ext_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $emp_ext_id = $request->emp_ext;$/;"	variable	line:226
+getEmpExtNombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^    private function getEmpExtNombre($emp_ext_id)$/;"	function	line:232
+emp_ext_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^        $emp_ext_nombre = null;$/;"	variable	line:234
+empleado	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^            $empleado = EmpleadoExterno::find($emp_ext_id);$/;"	variable	line:237
+emp_ext_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpleadosExternosController.php	/^                $emp_ext_nombre  = $empleado->apellidos . ', ' . $empleado->nombre . ' (#' . $empleado->id . ')';$/;"	variable	line:239
+create	/Users/danielmunoz/Projects/cae/resources/views/documentos_empleados_externos/create.blade.php	/^        create: function(input) {$/;"	jsfunction	line:58
+success	/Users/danielmunoz/Projects/cae/resources/views/empleados_empresa/create.blade.php	/^	\/\/ 		success: function(data) {$/;"	jsfunction	line:72
+create	/Users/danielmunoz/Projects/cae/resources/views/tipos_documentos/create.blade.php	/^        create: function(input) {$/;"	jsfunction	line:38
+create	/Users/danielmunoz/Projects/cae/resources/views/documentos_empresa/create.blade.php	/^        create: function(input) {$/;"	jsfunction	line:42
+create	/Users/danielmunoz/Projects/cae/resources/views/documentos_empresa/edit.blade.php	/^        create: function(input) {$/;"	jsfunction	line:60
+create	/Users/danielmunoz/Projects/cae/resources/views/documentos_empleados_externos/edit.blade.php	/^        create: function(input) {$/;"	jsfunction	line:65
+EmpresasExternasController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^class EmpresasExternasController extends Controller$/;"	class	line:18
+index	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^    public function index()$/;"	function	line:20
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^    public function create()$/;"	function	line:25
+provincias	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $provincias = Provincia::lists('nombre', 'id');$/;"	variable	line:27
+cnaes	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $cnaes = CodigoCNAE::lists('descripcion', 'codigo');$/;"	variable	line:28
+modalidades	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $modalidades = config('enums.modalidades_preventivas');$/;"	variable	line:29
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^    public function store(Request $request)$/;"	function	line:34
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $fields = $request->all();$/;"	variable	line:36
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:38
+tipo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $tipo = EmpresaExterna::create($fields);$/;"	variable	line:46
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^    public function edit($id)$/;"	function	line:53
+provincias	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $provincias = Provincia::lists('nombre', 'id');$/;"	variable	line:58
+cnaes	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $cnaes = CodigoCNAE::lists('descripcion', 'codigo');$/;"	variable	line:59
+modalidades	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $modalidades = config('enums.modalidades_preventivas');$/;"	variable	line:60
+empresa	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $empresa = EmpresaExterna::findOrFail($id);$/;"	variable	line:62
+emp_ext	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $emp_ext = EmpleadoExterno::where('activo', '1')$/;"	variable	line:63
+empleados	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $empleados = [];$/;"	variable	line:67
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^    public function update(Request $request, $id)$/;"	function	line:75
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $fields = $request->all();$/;"	variable	line:77
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:79
+empresa	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $empresa = EmpresaExterna::findOrFail($id);$/;"	variable	line:86
+destroy	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^    public function destroy($id)$/;"	function	line:94
+rowsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^    public function rowsData(Request $request)$/;"	function	line:99
+empresas	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $empresas = EmpresaExterna::select([ 'id', 'razon_social', 'cif',$/;"	variable	line:101
+provincia	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^                $provincia = Provincia::find($empresa->provincia_id);$/;"	variable	line:109
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^    protected function validator(array $data)$/;"	function	line:128
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $validator = Validator::make($data, [$/;"	variable	line:130
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $fields_names = [$/;"	variable	line:135
+empleadosData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^    public function empleadosData(Request $request)$/;"	function	line:144
+empleados	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^        $empleados = EmpleadoExterno::select([ 'id', 'nombre', 'apellidos', 'nif', 'telefono', 'email', 'cargo', 'usuario_id', 'empresa_externa_id', 'fecha_alta', 'activo' ])$/;"	variable	line:146
+empresa	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasExternasController.php	/^                $empresa = EmpresaExterna::find($empleado->empresa_externa_id);$/;"	variable	line:168
+data	/Users/danielmunoz/Projects/cae/resources/views/empleados_externos/edit.blade.php	/^			data: function(d) {$/;"	jsfunction	line:89
+BaseController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/BaseController.php	/^class BaseController extends Controller$/;"	class	line:11
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/BaseController.php	/^    protected $views_path = null;$/;"	variable	line:14
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/BaseController.php	/^    protected $views_path = null;$/;"	variable	line:14
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/BaseController.php	/^    protected $back_key = null;$/;"	variable	line:16
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/BaseController.php	/^    protected $back_key = null;$/;"	variable	line:16
+EmpleadosExternosController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^class EmpleadosExternosController extends BaseController$/;"	class	line:17
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    protected $views_path = 'empleados_externos';$/;"	variable	line:19
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    protected $views_path = 'empleados_externos';$/;"	variable	line:19
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    protected $back_key = 'empleados-externos-backURL';$/;"	variable	line:21
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    protected $back_key = 'empleados-externos-backURL';$/;"	variable	line:21
+index	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    \/\/ public function index()$/;"	function	line:23
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    public function create(Request $request)$/;"	function	line:30
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $return_to = $this->getReturnTo();$/;"	variable	line:32
+emp_ext_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $emp_ext_id = $this->getEmpExtId($request);$/;"	variable	line:34
+emp_ext_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $emp_ext_nombre = $this->getEmpExtNombre($emp_ext_id);$/;"	variable	line:35
+users	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $users = User::lists('nombre', 'id');$/;"	variable	line:37
+empresas	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $empresas = EmpresaExterna::lists('razon_social', 'id');$/;"	variable	line:38
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    public function store(Request $request)$/;"	function	line:43
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $fields = $request->all();$/;"	variable	line:45
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:47
+tipo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $tipo = EmpleadoExterno::create($fields);$/;"	variable	line:55
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    public function edit(Request $request, $id)$/;"	function	line:62
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $return_to = null;$/;"	variable	line:64
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^            $return_to = Session::get('empleados-externos-backURL');$/;"	variable	line:66
+emp_ext_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        \/\/ $emp_ext_id = $this->getEmpExtId($request);$/;"	variable	line:68
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        \/\/     $return_to = route('empresas-externas.edit', $emp_ext_id) . '#tab_4';$/;"	variable	line:70
+users	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $users = User::lists('nombre', 'id');$/;"	variable	line:73
+empresas	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $empresas = EmpresaExterna::lists('razon_social', 'id');$/;"	variable	line:74
+empleado	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $empleado = EmpleadoExterno::findOrFail($id);$/;"	variable	line:76
+emp_ext_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $emp_ext_nombre = $this->getEmpExtNombre($empleado->empresa_externa_id);$/;"	variable	line:77
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    public function update(Request $request, $id)$/;"	function	line:82
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $fields = $request->all();$/;"	variable	line:84
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:86
+empleado	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $empleado = EmpleadoExterno::findOrFail($id);$/;"	variable	line:93
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $return_to = $this->getReturnTo($request);$/;"	variable	line:98
+destroy	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    public function destroy($id)$/;"	function	line:106
+rowsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    public function rowsData(Request $request)$/;"	function	line:111
+empleados	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $empleados = EmpleadoExterno::select([ 'id', 'nombre', 'apellidos', 'nif', 'telefono', 'email', 'cargo', 'usuario_id', 'empresa_externa_id', 'fecha_alta', 'activo' ])$/;"	variable	line:113
+empresa	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^                $empresa = EmpresaExterna::find($empleado->empresa_externa_id);$/;"	variable	line:133
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    protected function validator(array $data)$/;"	function	line:143
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $validator = Validator::make($data, [$/;"	variable	line:145
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $fields_names = [$/;"	variable	line:151
+whereToReturn	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    private function whereToReturn()$/;"	function	line:161
+getReturnTo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    private function getReturnTo()$/;"	function	line:170
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $return_to = null;$/;"	variable	line:172
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        \/\/     $return_to = $request->return_to;$/;"	variable	line:174
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^            $return_to = Session::get('empleados-externos-backURL');$/;"	variable	line:177
+getEmpExtId	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    private function getEmpExtId(Request $request)$/;"	function	line:182
+emp_ext_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $emp_ext_id = null;$/;"	variable	line:184
+emp_ext_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^            $emp_ext_id = $request->emp_ext;$/;"	variable	line:187
+getEmpExtNombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^    private function getEmpExtNombre($emp_ext_id)$/;"	function	line:193
+emp_ext_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^        $emp_ext_nombre = null;$/;"	variable	line:195
+empresa	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^            $empresa = EmpresaExterna::find($emp_ext_id);$/;"	variable	line:198
+emp_ext_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpleadosExternosController.php	/^                $emp_ext_nombre  = $empresa->razon_social . ' (#' . $empresa->id . ')';$/;"	variable	line:200
+CreateExternosTables	/Users/danielmunoz/Projects/cae/database/migrations/2016_06_10_000012_create_externos_tables.php	/^class CreateExternosTables extends Migration$/;"	class	line:6
+up	/Users/danielmunoz/Projects/cae/database/migrations/2016_06_10_000012_create_externos_tables.php	/^    public function up()$/;"	function	line:9
+down	/Users/danielmunoz/Projects/cae/database/migrations/2016_06_10_000012_create_externos_tables.php	/^    public function down()$/;"	function	line:61
+TrabajadoresSeeder	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^class TrabajadoresSeeder extends Seeder$/;"	class	line:8
+run	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^    public function run()$/;"	function	line:10
+faker	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^        $faker = Faker::create('es_ES');$/;"	variable	line:12
+tel	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^        $tel = str_replace("+34", "", str_replace(" ", "", str_replace("-", "", $faker->phoneNumber)));$/;"	variable	line:14
+endDate	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^                'fecha_nacimiento' => $faker->dateTimeBetween($startDate = '-60 years', $endDate = '-18 years', $timezone = date_default_timezone_get()),$/;"	variable	line:20
+max	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^                'provincia_id' => $faker->numberBetween($min = 1, $max = 52),$/;"	variable	line:24
+tel	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^        $tel = str_replace("+34", "", str_replace(" ", "", str_replace("-", "", $faker->phoneNumber)));$/;"	variable	line:35
+endDate	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^                'fecha_nacimiento' => $faker->dateTimeBetween($startDate = '-60 years', $endDate = '-18 years', $timezone = date_default_timezone_get()),$/;"	variable	line:41
+max	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^                'provincia_id' => $faker->numberBetween($min = 1, $max = 52),$/;"	variable	line:45
+tel	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^        $tel = str_replace("+34", "", str_replace(" ", "", str_replace("-", "", $faker->phoneNumber)));$/;"	variable	line:56
+endDate	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^                'fecha_nacimiento' => $faker->dateTimeBetween($startDate = '-60 years', $endDate = '-18 years', $timezone = date_default_timezone_get()),$/;"	variable	line:62
+max	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^                'provincia_id' => $faker->numberBetween($min = 1, $max = 52),$/;"	variable	line:66
+tel	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^        $tel = str_replace("+34", "", str_replace(" ", "", str_replace("-", "", $faker->phoneNumber)));$/;"	variable	line:76
+endDate	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^                'fecha_nacimiento' => $faker->dateTimeBetween($startDate = '-60 years', $endDate = '-18 years', $timezone = date_default_timezone_get()),$/;"	variable	line:82
+max	/Users/danielmunoz/Projects/cae/database/seeds/TrabajadoresSeeder.php	/^                'provincia_id' => $faker->numberBetween($min = 1, $max = 52),$/;"	variable	line:86
+Trabajador	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^class Trabajador extends Model$/;"	class	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    protected $table = 'trabajadores';$/;"	variable	line:11
+table	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    protected $table = 'trabajadores';$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    protected $fillable = [ 'nombre', 'apellidos', 'nif', 'nss', 'fecha_nacimiento',$/;"	variable	line:13
+fillable	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    protected $fillable = [ 'nombre', 'apellidos', 'nif', 'nss', 'fecha_nacimiento',$/;"	variable	line:13
+dates	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    protected $dates = [ 'created_at', 'updated_at', 'fecha_nacimiento', 'fecha_alta', 'fecha_baja' ];$/;"	variable	line:19
+dates	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    protected $dates = [ 'created_at', 'updated_at', 'fecha_nacimiento', 'fecha_alta', 'fecha_baja' ];$/;"	variable	line:19
+hasDocumentosFormacion	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function hasDocumentosFormacion()$/;"	function	line:22
+hasDocumentosInformacion	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function hasDocumentosInformacion()$/;"	function	line:27
+hasDocumentosEPIS	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function hasDocumentosEPIS()$/;"	function	line:32
+hasDocumentosVigilanciaSalud	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function hasDocumentosVigilanciaSalud()$/;"	function	line:37
+hasDocumentosOtros	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function hasDocumentosOtros()$/;"	function	line:42
+hasDocumentos	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    private function hasDocumentos($type)$/;"	function	line:47
+docs	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^        $docs = TrabajadorDoc::where('trabajador_id', '=', $this->id)$/;"	variable	line:49
+getFechaNacimientoAttribute	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function getFechaNacimientoAttribute($value)$/;"	function	line:54
+setFechaNacimientoAttribute	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function setFechaNacimientoAttribute($value)$/;"	function	line:59
+getFechaAltaAttribute	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function getFechaAltaAttribute($value)$/;"	function	line:64
+setFechaAltaAttribute	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function setFechaAltaAttribute($value)$/;"	function	line:69
+getFechaBajaAttribute	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function getFechaBajaAttribute($value)$/;"	function	line:74
+setFechaBajaAttribute	/Users/danielmunoz/Projects/cae/app/Models/Trabajador.php	/^    public function setFechaBajaAttribute($value)$/;"	function	line:79
+TrabajadorDoc	/Users/danielmunoz/Projects/cae/app/Models/TrabajadorDoc.php	/^class TrabajadorDoc extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/TrabajadorDoc.php	/^    protected $table = 'trabajadores_doc';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/TrabajadorDoc.php	/^    protected $table = 'trabajadores_doc';$/;"	variable	line:9
+fillable	/Users/danielmunoz/Projects/cae/app/Models/TrabajadorDoc.php	/^    protected $fillable = [ 'trabajador_id', 'documento_id', 'tipo_documento_trabajador', 'horas_formacion' ];$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/TrabajadorDoc.php	/^    protected $fillable = [ 'trabajador_id', 'documento_id', 'tipo_documento_trabajador', 'horas_formacion' ];$/;"	variable	line:11
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/TrabajadorDoc.php	/^    public $timestamps = false;$/;"	variable	line:13
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/TrabajadorDoc.php	/^    public $timestamps = false;$/;"	variable	line:13
+EmpresasDoc	/Users/danielmunoz/Projects/cae/app/Models/EmpresaExtDoc.php	/^class EmpresasDoc extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/EmpresaExtDoc.php	/^    protected $table = 'empresas_doc';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/EmpresaExtDoc.php	/^    protected $table = 'empresas_doc';$/;"	variable	line:9
+fillable	/Users/danielmunoz/Projects/cae/app/Models/EmpresaExtDoc.php	/^    protected $fillable = [ 'empresa_id', 'documento_id' ];$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/EmpresaExtDoc.php	/^    protected $fillable = [ 'empresa_id', 'documento_id' ];$/;"	variable	line:11
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/EmpresaExtDoc.php	/^    public $timestamps = false;$/;"	variable	line:13
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/EmpresaExtDoc.php	/^    public $timestamps = false;$/;"	variable	line:13
+TrabajadoresController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^class TrabajadoresController extends BaseController$/;"	class	line:27
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    protected $views_path = 'trabajadores';$/;"	variable	line:31
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    protected $views_path = 'trabajadores';$/;"	variable	line:31
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    protected $default_return_to = 'trabajadores';$/;"	variable	line:32
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    protected $default_return_to = 'trabajadores';$/;"	variable	line:32
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    protected $back_key = 'trabajadores-backURL';$/;"	variable	line:33
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    protected $back_key = 'trabajadores-backURL';$/;"	variable	line:33
+trabajador_id_session_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    private $trabajador_id_session_key = 'editando-trabajador';$/;"	variable	line:35
+trabajador_id_session_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    private $trabajador_id_session_key = 'editando-trabajador';$/;"	variable	line:35
+documentos_route	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    private $documentos_route = 'trabajadores.addDoc';$/;"	variable	line:36
+documentos_route	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    private $documentos_route = 'trabajadores.addDoc';$/;"	variable	line:36
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    public function create(Request $request)$/;"	function	line:39
+empresa_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $empresa_id = $this->getEmpresaId($request);$/;"	variable	line:41
+empresa_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $empresa_nombre = $this->getEmpresaNombre($empresa_id);$/;"	variable	line:42
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $return_to = $this->getReturnTo();$/;"	variable	line:43
+provincias	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $provincias = Provincia::lists('nombre', 'id');$/;"	variable	line:44
+users	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $users = User::lists('nombre', 'id');$/;"	variable	line:46
+empresas	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $empresas = Empresa::lists('razon_social', 'id');$/;"	variable	line:47
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    public function store(Request $request)$/;"	function	line:52
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $fields = $request->all();$/;"	variable	line:54
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:56
+trabajador	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $trabajador = Trabajador::create($fields);$/;"	variable	line:74
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    public function edit(Request $request, $id)$/;"	function	line:81
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $return_to = $this->getReturnTo();$/;"	variable	line:87
+users	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $users = User::lists('nombre', 'id');$/;"	variable	line:88
+empresas	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $empresas = Empresa::lists('razon_social', 'id');$/;"	variable	line:89
+provincias	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $provincias = Provincia::lists('nombre', 'id');$/;"	variable	line:90
+tipos_documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $tipos_documentos = TipoDocumento::lists('nombre', 'id');$/;"	variable	line:91
+documentos_route	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $documentos_route = route($this->documentos_route);$/;"	variable	line:92
+trabajador	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $trabajador = Trabajador::findOrFail($id);$/;"	variable	line:94
+empresa_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $empresa_nombre = $this->getEmpresaNombre($trabajador->empresa_id);$/;"	variable	line:95
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    public function update(Request $request, $id)$/;"	function	line:100
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $fields = $request->all();$/;"	variable	line:102
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $validator = $this->validator($fields, true);$/;"	variable	line:104
+trabajador	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $trabajador = Trabajador::findOrFail($id);$/;"	variable	line:111
+destroy	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    public function destroy($id)$/;"	function	line:129
+rowsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    public function rowsData(Request $request)$/;"	function	line:134
+trabajadores	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $trabajadores = Trabajador::join('empresas', 'trabajadores.empresa_id', '=', 'empresas.id')$/;"	variable	line:136
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $datatable = Datatables::of($trabajadores)$/;"	variable	line:145
+hasDocument	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    private function hasDocument($has)$/;"	function	line:185
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    protected function validator(array $data, $isUpdate = false)$/;"	function	line:194
+isUpdate	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    protected function validator(array $data, $isUpdate = false)$/;"	variable	line:194
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $validator = Validator::make($data, [$/;"	variable	line:196
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $fields_names = [$/;"	variable	line:214
+getEmpresaId	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    private function getEmpresaId(Request $request)$/;"	function	line:236
+getEmpresaNombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    private function getEmpresaNombre($empresa_id)$/;"	function	line:245
+empresa_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $empresa_nombre = null;$/;"	variable	line:247
+empresa	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^            $empresa = Empresa::find($empresa_id);$/;"	variable	line:250
+empresa_nombre	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^                $empresa_nombre  = $empresa->razon_social . ' (#' . $empresa->id . ')';$/;"	variable	line:252
+addDocumento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    public function addDocumento(Request $request)$/;"	function	line:267
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $fields = $request->all();$/;"	variable	line:269
+res	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $res = $this->save_document($request);$/;"	variable	line:272
+f	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $f = ['documento_id' => $res['result']->id];$/;"	variable	line:285
+docsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    public function docsData(Request $request)$/;"	function	line:297
+trabajador_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^            $trabajador_id = Session::get($this->trabajador_id_session_key);$/;"	variable	line:300
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^            $documentos = Documento::join('trabajadores_doc', 'trabajadores_doc.documento_id', '=', 'documentos.id')$/;"	variable	line:302
+getDocumentData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    public function getDocumentData(Request $request, $id)$/;"	function	line:316
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $documento = Documento::join('trabajadores_doc', 'trabajadores_doc.documento_id', '=', 'documentos.id')$/;"	variable	line:318
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^        $tags = $documento->tagListNormalized;$/;"	variable	line:323
+removeDocument	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TrabajadoresController.php	/^    \/\/ public function removeDocument($id)$/;"	function	line:329
+EmpresasController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^class EmpresasController extends BaseController$/;"	class	line:26
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    protected $views_path = 'empresas';$/;"	variable	line:30
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    protected $views_path = 'empresas';$/;"	variable	line:30
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    protected $default_return_to = 'empresas';$/;"	variable	line:31
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    protected $default_return_to = 'empresas';$/;"	variable	line:31
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    protected $back_key = 'empresas-backURL';$/;"	variable	line:32
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    protected $back_key = 'empresas-backURL';$/;"	variable	line:32
+empresa_id_session_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    private $empresa_id_session_key = 'editando-empresa';$/;"	variable	line:34
+empresa_id_session_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    private $empresa_id_session_key = 'editando-empresa';$/;"	variable	line:34
+documentos_route	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    private $documentos_route = 'empresas.addDoc';$/;"	variable	line:35
+documentos_route	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    private $documentos_route = 'empresas.addDoc';$/;"	variable	line:35
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    public function create()$/;"	function	line:38
+provincias	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $provincias = Provincia::lists('nombre', 'id');$/;"	variable	line:40
+cnaes	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $cnaes = CodigoCNAE::lists('descripcion', 'codigo');$/;"	variable	line:41
+modalidades	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $modalidades = config('enums.modalidades_preventivas');$/;"	variable	line:42
+actividades_construccion	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $actividades_construccion = config('enums.actividades_construccion');$/;"	variable	line:43
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    public function store(Request $request)$/;"	function	line:48
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $fields = $request->all();$/;"	variable	line:50
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:52
+tipo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $tipo = Empresa::create($fields);$/;"	variable	line:79
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    public function edit($id)$/;"	function	line:86
+provincias	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $provincias = Provincia::lists('nombre', 'id');$/;"	variable	line:91
+cnaes	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $cnaes = CodigoCNAE::lists('descripcion', 'codigo');$/;"	variable	line:92
+modalidades	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $modalidades = config('enums.modalidades_preventivas');$/;"	variable	line:93
+actividades_construccion	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $actividades_construccion = config('enums.actividades_construccion');$/;"	variable	line:94
+documentos_route	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $documentos_route = route($this->documentos_route);$/;"	variable	line:95
+tipos_documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $tipos_documentos = TipoDocumento::lists('nombre', 'id');$/;"	variable	line:96
+empresa	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $empresa = Empresa::findOrFail($id);$/;"	variable	line:98
+trabajadores	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $trabajadores = Trabajador::where('activo', '=', true)$/;"	variable	line:99
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    public function update(Request $request, $id)$/;"	function	line:107
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $fields = $request->all();$/;"	variable	line:109
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:111
+empresa	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $empresa = Empresa::findOrFail($id);$/;"	variable	line:118
+destroy	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    public function destroy($id)$/;"	function	line:126
+rowsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    public function rowsData(Request $request)$/;"	function	line:131
+empresas	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $empresas = Empresa::select([ 'id', 'razon_social', 'cif', 'municipio', 'provincia_id', 'telefono',$/;"	variable	line:133
+provincia	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^                $provincia = Provincia::find($empresa->provincia_id);$/;"	variable	line:140
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    protected function validator(array $data)$/;"	function	line:174
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $validator = Validator::make($data, [$/;"	variable	line:176
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $fields_names = [$/;"	variable	line:187
+addDocumento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    public function addDocumento(Request $request)$/;"	function	line:210
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $fields = $request->all();$/;"	variable	line:212
+res	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $res = $this->save_document($request);$/;"	variable	line:215
+f	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $f = ['documento_id' => $res['result']->id];$/;"	variable	line:228
+docsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    public function docsData(Request $request)$/;"	function	line:236
+empresa_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $empresa_id = Session::get($this->empresa_id_session_key);$/;"	variable	line:238
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $documentos = Documento::join('empresas_doc', 'empresas_doc.documento_id', '=', 'documentos.id')$/;"	variable	line:240
+getDocumentData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^    public function getDocumentData(Request $request, $id)$/;"	function	line:252
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $documento = Documento::join('empresas_doc', 'empresas_doc.documento_id', '=', 'documentos.id')$/;"	variable	line:254
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/EmpresasController.php	/^        $tags = $documento->tagListNormalized;$/;"	variable	line:259
+$modal	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    var $modal = $('#documentos-modal-dialog');$/;"	variable	line:5
+$form	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    var $form = $('#documentos-modal-form');$/;"	variable	line:6
+$tds	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    var $tds = $('#tipo_documento_id');$/;"	variable	line:7
+selectize	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    var selectize = null;$/;"	variable	line:8
+_isNew	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    var _isNew = true;$/;"	variable	line:9
+_baseRoute	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    var _baseRoute = '';$/;"	variable	line:10
+create	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^            create: function(input) {$/;"	function	line:22
+DMF	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    $.DMF = function() {$/;"	function	line:31
+getCaducidad	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    	function getCaducidad() {$/;"	function	line:34
+$.DMF.getCaducidad	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    	function getCaducidad() {$/;"	function	line:34
+showCaducidad	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    	function showCaducidad(fecha_caducidad, tipo_caducidad, caducidad) {$/;"	function	line:44
+$.DMF.showCaducidad	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    	function showCaducidad(fecha_caducidad, tipo_caducidad, caducidad) {$/;"	function	line:44
+showModal	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function showModal(isNew = false, title, tipo) {$/;"	function	line:65
+$.DMF.showModal	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function showModal(isNew = false, title, tipo) {$/;"	function	line:65
+resetModalFormErrors	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function resetModalFormErrors() {$/;"	function	line:120
+$.DMF.resetModalFormErrors	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function resetModalFormErrors() {$/;"	function	line:120
+removeDocumentConfirmationDialog	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function removeDocumentConfirmationDialog(yes_callback) {$/;"	function	line:132
+onEscape	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^                onEscape: function() {},$/;"	function	line:137
+$.DMF.removeDocumentConfirmationDialog	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function removeDocumentConfirmationDialog(yes_callback) {$/;"	function	line:132
+setupSearchTags	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function setupSearchTags(suffix) {$/;"	function	line:153
+$.DMF.setupSearchTags	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function setupSearchTags(suffix) {$/;"	function	line:153
+setupRemoveDocument	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function setupRemoveDocument() {$/;"	function	line:172
+removeDocumentConfirmationDialog	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^                    removeDocumentConfirmationDialog(function() {$/;"	function	line:178
+$.DMF.setupRemoveDocument	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function setupRemoveDocument() {$/;"	function	line:172
+showModalForEdit	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function showModalForEdit(documento_id) {$/;"	function	line:199
+$.DMF.showModalForEdit	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        function showModalForEdit(documento_id) {$/;"	function	line:199
+init	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^            init: function(baseRoute) {$/;"	function	line:233
+$.DMF.output.init	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        var output = {$/;"	method	line:231
+setupDatatable	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^            setupDatatable: function(table, suffix = 'DOC', getDataUrl = null, columns_collection = null) {$/;"	function	line:285
+output.setupDatatable	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^            },$/;"	method	line:282
+$.DMF	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^    });$/;"	function	line:29
+data	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        				data: function(d) {$/;"	function	line:311
+dt	/Users/danielmunoz/Projects/cae/public/js/documentos.modal.form.js	/^        		var dt = table.DataTable({$/;"	variable	line:305
+EmpleadosEmpresaSeeder	/Users/danielmunoz/Projects/cae/database/seeds/EmpleadosEmpresaSeeder.php	/^class EmpleadosEmpresaSeeder extends Seeder$/;"	class	line:8
+run	/Users/danielmunoz/Projects/cae/database/seeds/EmpleadosEmpresaSeeder.php	/^    public function run()$/;"	function	line:10
+faker	/Users/danielmunoz/Projects/cae/database/seeds/EmpleadosEmpresaSeeder.php	/^        $faker = Faker::create('es_ES');$/;"	variable	line:12
+tel	/Users/danielmunoz/Projects/cae/database/seeds/EmpleadosEmpresaSeeder.php	/^            $tel = str_replace("+34", "", str_replace(" ", "", str_replace("-", "", $faker->phoneNumber)));$/;"	variable	line:124
+CreateDocumentosTables	/Users/danielmunoz/Projects/cae/database/migrations/2016_06_10_000014_create_documentos_tables.php	/^class CreateDocumentosTables extends Migration$/;"	class	line:6
+up	/Users/danielmunoz/Projects/cae/database/migrations/2016_06_10_000014_create_documentos_tables.php	/^    public function up()$/;"	function	line:8
+down	/Users/danielmunoz/Projects/cae/database/migrations/2016_06_10_000014_create_documentos_tables.php	/^    public function down()$/;"	function	line:66
+DocumentoEmpresa	/Users/danielmunoz/Projects/cae/app/Models/DocumentoEmpresa.php	/^class DocumentoEmpresa extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/DocumentoEmpresa.php	/^    protected $table = 'empresa_doc';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/DocumentoEmpresa.php	/^    protected $table = 'empresa_doc';$/;"	variable	line:9
+primaryKey	/Users/danielmunoz/Projects/cae/app/Models/DocumentoEmpresa.php	/^    protected $primaryKey = 'documento_id';$/;"	variable	line:11
+primaryKey	/Users/danielmunoz/Projects/cae/app/Models/DocumentoEmpresa.php	/^    protected $primaryKey = 'documento_id';$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/DocumentoEmpresa.php	/^    protected $fillable = [ 'documento_id' ];$/;"	variable	line:13
+fillable	/Users/danielmunoz/Projects/cae/app/Models/DocumentoEmpresa.php	/^    protected $fillable = [ 'documento_id' ];$/;"	variable	line:13
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/DocumentoEmpresa.php	/^    public $timestamps = false;$/;"	variable	line:15
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/DocumentoEmpresa.php	/^    public $timestamps = false;$/;"	variable	line:15
+DocumentosEmpresaController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^class DocumentosEmpresaController extends BaseController$/;"	class	line:16
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    protected $views_path = 'documentos_empresa';$/;"	variable	line:20
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    protected $views_path = 'documentos_empresa';$/;"	variable	line:20
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    protected $default_return_to = 'documentos-empresa';$/;"	variable	line:21
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    protected $default_return_to = 'documentos-empresa';$/;"	variable	line:21
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    protected $back_key = 'documentos-empresa-backURL';$/;"	variable	line:22
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    protected $back_key = 'documentos-empresa-backURL';$/;"	variable	line:22
+index	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    public function index()$/;"	function	line:25
+documentos_route	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^        $documentos_route = route('documentos-empresa.addDoc');$/;"	variable	line:27
+tipos_documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^        $tipos_documentos = TipoDocumento::lists('nombre', 'id');$/;"	variable	line:28
+addDocumento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    public function addDocumento(Request $request)$/;"	function	line:42
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^        $fields = $request->all();$/;"	variable	line:44
+res	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^        $res = $this->save_document($request);$/;"	variable	line:47
+f	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^        $f = ['documento_id' => $res['result']->id];$/;"	variable	line:60
+docsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    public function docsData(Request $request)$/;"	function	line:67
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^        $documentos = Documento::join('empresa_doc', 'empresa_doc.documento_id', '=', 'documentos.id')$/;"	variable	line:69
+getDocumentData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^    public function getDocumentData(Request $request, $id)$/;"	function	line:80
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^        $documento = Documento::join('empresa_doc', 'empresa_doc.documento_id', '=', 'documentos.id')$/;"	variable	line:82
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/DocumentosEmpresaController.php	/^        $tags = $documento->tagListNormalized;$/;"	variable	line:87
+TiposDocumentosController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^class TiposDocumentosController extends BaseController$/;"	class	line:16
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    protected $views_path = 'tipos_documentos';$/;"	variable	line:18
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    protected $views_path = 'tipos_documentos';$/;"	variable	line:18
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    protected $default_return_to = 'tipos-documentos';$/;"	variable	line:19
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    protected $default_return_to = 'tipos-documentos';$/;"	variable	line:19
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    protected $back_key = 'tipos-documentos-backURL';$/;"	variable	line:20
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    protected $back_key = 'tipos-documentos-backURL';$/;"	variable	line:20
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    public function create()$/;"	function	line:22
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $return_to = $this->getReturnTo();$/;"	variable	line:24
+caducidades	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $caducidades = config('enums.tipos_caducidad');$/;"	variable	line:26
+doc_scopes	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $doc_scopes = config('enums.doc_scopes');$/;"	variable	line:27
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $tags = [];$/;"	variable	line:28
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    public function store(Request $request)$/;"	function	line:33
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $fields = $request->all();$/;"	variable	line:35
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:37
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $documento = TipoDocumento::create($fields);$/;"	variable	line:45
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    public function edit($id)$/;"	function	line:54
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $return_to = $this->getReturnTo();$/;"	variable	line:56
+caducidades	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $caducidades = config('enums.tipos_caducidad');$/;"	variable	line:58
+doc_scopes	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $doc_scopes = config('enums.doc_scopes');$/;"	variable	line:59
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $documento = TipoDocumento::findOrFail($id);$/;"	variable	line:60
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $tags = $documento->tagListNormalized;$/;"	variable	line:61
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    public function update(Request $request, $id)$/;"	function	line:66
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $fields = $request->all();$/;"	variable	line:68
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:70
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $documento = TipoDocumento::findOrFail($id);$/;"	variable	line:77
+destroy	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    public function destroy($id)$/;"	function	line:88
+rowsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    public function rowsData(Request $request)$/;"	function	line:93
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $documentos = TipoDocumento::select(['id', 'nombre', 'referencia', 'notas', 'ambito', 'tipo_caducidad', 'activo'])$/;"	variable	line:95
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $datatable = $this->defaultDatatable($documentos);$/;"	variable	line:98
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^                    $documentos = $documentos->withAllTags($search_term);$/;"	variable	line:103
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^                    $datatable = $this->defaultDatatable($documentos);$/;"	variable	line:104
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^                    $datatable = $datatable->filter(function ($query) use ($request) {} );$/;"	variable	line:105
+defaultDatatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    private function defaultDatatable($documentos)$/;"	function	line:113
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $datatable = Datatables::of($documentos)$/;"	variable	line:115
+actionsColumn	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    private function actionsColumn($documento)$/;"	function	line:125
+tagsColumn	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    private function tagsColumn($documento)$/;"	function	line:133
+html	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $html = '';$/;"	variable	line:135
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^    protected function validator(array $data)$/;"	function	line:142
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $validator = Validator::make($data, [$/;"	variable	line:144
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposDocumentosController.php	/^        $fields_names = [$/;"	variable	line:150
+ta	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $ta = \\app\\Adjudicacion::findOrFail($id);$/;"	variable	line:25
+ta	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $ta = \\app\\DocumentoEmpresa::findOrFail($id);$/;"	variable	line:46
+ta	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $ta = \\app\\DocumentoEmpleadoExterno::findOrFail($id);$/;"	variable	line:67
+ta	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $ta = \\app\\EmpleadoExterno::findOrFail($id);$/;"	variable	line:88
+ta	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $ta = \\app\\EmpleadoExterno::findOrFail($id);$/;"	variable	line:109
+ta	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $ta = \\app\\EmpleadoEmpresa::findOrFail($id);$/;"	variable	line:130
+ta	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $ta = \\app\\TipoContrato::findOrFail($id);$/;"	variable	line:151
+documento	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $documento = \\app\\TipoDocumento::findOrFail($id);$/;"	variable	line:172
+centro	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $centro = \\app\\Centro::findOrFail($id);$/;"	variable	line:193
+user	/Users/danielmunoz/Projects/cae/app/Http/breadcrumbs.php	/^\/\/     $user = \\app\\User::findOrFail($id);$/;"	variable	line:214
+data	/Users/danielmunoz/Projects/cae/resources/views/tipos_documentos/index.blade.php	/^			data: function(d) {$/;"	jsfunction	line:51
+TipoContrato	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato.php	/^class TipoContrato extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato.php	/^    protected $table = 'tipos_contratos';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato.php	/^    protected $table = 'tipos_contratos';$/;"	variable	line:9
+fillable	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato.php	/^    protected $fillable = [ 'nombre', 'notas', 'nivel_subcontratas', 'activo' ];$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato.php	/^    protected $fillable = [ 'nombre', 'notas', 'nivel_subcontratas', 'activo' ];$/;"	variable	line:11
+TipoContrato_TipoDocumento	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato_TipoDocumento.php	/^class TipoContrato_TipoDocumento extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato_TipoDocumento.php	/^    protected $table = 'tipos_contratos_tipos_documentos';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato_TipoDocumento.php	/^    protected $table = 'tipos_contratos_tipos_documentos';$/;"	variable	line:9
+fillable	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato_TipoDocumento.php	/^    protected $fillable = [ 'tipo_adjudicacion_id', 'tipo_documento_id' ];$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato_TipoDocumento.php	/^    protected $fillable = [ 'tipo_adjudicacion_id', 'tipo_documento_id' ];$/;"	variable	line:11
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato_TipoDocumento.php	/^    public $timestamps = false;$/;"	variable	line:13
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/TipoContrato_TipoDocumento.php	/^    public $timestamps = false;$/;"	variable	line:13
+TiposContratosController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^class TiposContratosController extends BaseController$/;"	class	line:19
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    protected $views_path = 'tipos_contratos';$/;"	variable	line:21
+views_path	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    protected $views_path = 'tipos_contratos';$/;"	variable	line:21
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    protected $default_return_to = 'tipos-contratos';$/;"	variable	line:22
+default_return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    protected $default_return_to = 'tipos-contratos';$/;"	variable	line:22
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    protected $back_key = 'tipos-documentos-backURL';$/;"	variable	line:23
+back_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    protected $back_key = 'tipos-documentos-backURL';$/;"	variable	line:23
+index	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function index()$/;"	function	line:25
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function create()$/;"	function	line:32
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $return_to = $this->getReturnTo();$/;"	variable	line:34
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function store(Request $request)$/;"	function	line:39
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $fields = $request->all();$/;"	variable	line:41
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:43
+tipo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $tipo = TipoContrato::create($fields);$/;"	variable	line:56
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function edit($id)$/;"	function	line:63
+return_to	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $return_to = $this->getReturnTo();$/;"	variable	line:67
+tipo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $tipo = TipoContrato::findOrFail($id);$/;"	variable	line:68
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function update(Request $request, $id)$/;"	function	line:73
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $fields = $request->all();$/;"	variable	line:75
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:77
+tipo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $tipo = TipoContrato::findOrFail($id);$/;"	variable	line:84
+destroy	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function destroy($id)$/;"	function	line:97
+rowsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function rowsData(Request $request)$/;"	function	line:102
+tipos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $tipos = TipoContrato::select([ 'id', 'nombre', 'notas', 'nivel_subcontratas', 'activo' ])$/;"	variable	line:104
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    protected function validator(array $data)$/;"	function	line:125
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $validator = Validator::make($data, [$/;"	variable	line:127
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $fields_names = [$/;"	variable	line:131
+documentosData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function documentosData(Request $request)$/;"	function	line:140
+tipos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^        $tipos = TipoDocumento::join('tipos_contratos_tipos_documentos', 'tipos_contratos_tipos_documentos.tipo_documento_id', '=', 'tipos_documentos.id')$/;"	variable	line:142
+seleccionarDocumentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function seleccionarDocumentos(Request $request)$/;"	function	line:162
+documentosSeleccionados	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function documentosSeleccionados(Request $request)$/;"	function	line:174
+ids_array	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^            $ids_array = explode(',', $ids);$/;"	variable	line:177
+new	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^                    $new = TipoContrato_TipoDocumento::firstOrNew([$/;"	variable	line:182
+deleteDocumentoAsociado	/Users/danielmunoz/Projects/cae/app/Http/Controllers/TiposContratosController.php	/^    public function deleteDocumentoAsociado(Request $request, $id)$/;"	function	line:198
+create	/Users/danielmunoz/Projects/cae/resources/views/tipos_documentos/edit.blade.php	/^        create: function(input) {$/;"	jsfunction	line:46
+Centro	/Users/danielmunoz/Projects/cae/app/Models/Centro.php	/^class Centro extends Model$/;"	class	line:8
+fillable	/Users/danielmunoz/Projects/cae/app/Models/Centro.php	/^    protected $fillable = [$/;"	variable	line:10
+fillable	/Users/danielmunoz/Projects/cae/app/Models/Centro.php	/^    protected $fillable = [$/;"	variable	line:10
+EmpresasDoc	/Users/danielmunoz/Projects/cae/app/Models/EmpresasDoc.php	/^class EmpresasDoc extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/EmpresasDoc.php	/^    protected $table = 'empresas_doc';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/EmpresasDoc.php	/^    protected $table = 'empresas_doc';$/;"	variable	line:9
+fillable	/Users/danielmunoz/Projects/cae/app/Models/EmpresasDoc.php	/^    protected $fillable = [ 'empresa_id', 'documento_id' ];$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/EmpresasDoc.php	/^    protected $fillable = [ 'empresa_id', 'documento_id' ];$/;"	variable	line:11
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/EmpresasDoc.php	/^    public $timestamps = false;$/;"	variable	line:13
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/EmpresasDoc.php	/^    public $timestamps = false;$/;"	variable	line:13
+CentroDoc	/Users/danielmunoz/Projects/cae/app/Models/CentroDoc.php	/^class CentroDoc extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/CentroDoc.php	/^    protected $table = 'centros_doc';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/CentroDoc.php	/^    protected $table = 'centros_doc';$/;"	variable	line:9
+fillable	/Users/danielmunoz/Projects/cae/app/Models/CentroDoc.php	/^    protected $fillable = [ 'centro_id', 'documento_id' ];$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/CentroDoc.php	/^    protected $fillable = [ 'centro_id', 'documento_id' ];$/;"	variable	line:11
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/CentroDoc.php	/^    public $timestamps = false;$/;"	variable	line:13
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/CentroDoc.php	/^    public $timestamps = false;$/;"	variable	line:13
+CentrosController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^class CentrosController extends Controller$/;"	class	line:22
+centro_id_session_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    private $centro_id_session_key = 'editando-centro';$/;"	variable	line:26
+centro_id_session_key	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    private $centro_id_session_key = 'editando-centro';$/;"	variable	line:26
+index	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function index()$/;"	function	line:29
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function create()$/;"	function	line:34
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function store(Request $request)$/;"	function	line:39
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $fields = $request->all();$/;"	variable	line:41
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:43
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function edit($id)$/;"	function	line:58
+documentos_route	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $documentos_route = route('centros.addDoc');$/;"	variable	line:62
+tipos_documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $tipos_documentos = TipoDocumento::lists('nombre', 'id');$/;"	variable	line:63
+centro	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $centro = Centro::findOrFail($id);$/;"	variable	line:64
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function update(Request $request, $id)$/;"	function	line:69
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $fields = $request->all();$/;"	variable	line:71
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $validator = $this->validator($fields);$/;"	variable	line:73
+centro	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $centro = Centro::findOrFail($id);$/;"	variable	line:80
+destroy	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function destroy($id)$/;"	function	line:88
+rowsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function rowsData()$/;"	function	line:93
+centros	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $centros = Centro::select(['id', 'nombre', 'direccion', 'codigo_postal', 'municipio', 'telefono_centro', 'fax_centro', 'email_centro',$/;"	variable	line:95
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    protected function validator(array $data)$/;"	function	line:107
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $validator = Validator::make($data, [$/;"	variable	line:109
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $fields_names = [$/;"	variable	line:121
+addDocumento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function addDocumento(Request $request)$/;"	function	line:146
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $fields = $request->all();$/;"	variable	line:148
+res	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $res = $this->save_document($request);$/;"	variable	line:151
+f	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $f = ['documento_id' => $res['result']->id];$/;"	variable	line:164
+docsData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function docsData(Request $request)$/;"	function	line:172
+centro_id	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $centro_id = Session::get($this->centro_id_session_key);$/;"	variable	line:174
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $documentos = Documento::join('centros_doc', 'centros_doc.documento_id', '=', 'documentos.id')$/;"	variable	line:176
+getDocumentData	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^    public function getDocumentData(Request $request, $id)$/;"	function	line:188
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $documento = Documento::join('centros_doc', 'centros_doc.documento_id', '=', 'documentos.id')$/;"	variable	line:190
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/CentrosController.php	/^        $tags = $documento->tagListNormalized;$/;"	variable	line:195
+MaquinaExterna	/Users/danielmunoz/Projects/cae/app/Models/MaquinaExterna.php	/^class MaquinaExterna extends Model$/;"	class	line:7
+Maquina	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^class Maquina extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    protected $table = 'maquinas';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    protected $table = 'maquinas';$/;"	variable	line:9
+fillable	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    protected $fillable = [ 'nombre', 'marca', 'modelo',$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    protected $fillable = [ 'nombre', 'marca', 'modelo',$/;"	variable	line:11
+dates	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    protected $dates = [ 'fecha_alta', 'fecha_baja', 'created_at', 'updated_at' ];$/;"	variable	line:17
+dates	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    protected $dates = [ 'fecha_alta', 'fecha_baja', 'created_at', 'updated_at' ];$/;"	variable	line:17
+getFechaAltaAttribute	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    public function getFechaAltaAttribute($value)$/;"	function	line:20
+setFechaAltaAttribute	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    public function setFechaAltaAttribute($value)$/;"	function	line:25
+getFechaBajaAttribute	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    public function getFechaBajaAttribute($value)$/;"	function	line:30
+setFechaBajaAttribute	/Users/danielmunoz/Projects/cae/app/Models/Maquina.php	/^    public function setFechaBajaAttribute($value)$/;"	function	line:35
+MaquinaEmpresa	/Users/danielmunoz/Projects/cae/app/Models/MaquinaEmpresa.php	/^class MaquinaEmpresa extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/MaquinaEmpresa.php	/^    protected $table = 'maquinaria_emp';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/MaquinaEmpresa.php	/^    protected $table = 'maquinaria_emp';$/;"	variable	line:9
+primaryKey	/Users/danielmunoz/Projects/cae/app/Models/MaquinaEmpresa.php	/^    protected $primaryKey = 'documento_id';$/;"	variable	line:11
+primaryKey	/Users/danielmunoz/Projects/cae/app/Models/MaquinaEmpresa.php	/^    protected $primaryKey = 'documento_id';$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/MaquinaEmpresa.php	/^    protected $fillable = [ 'documento_id' ];$/;"	variable	line:13
+fillable	/Users/danielmunoz/Projects/cae/app/Models/MaquinaEmpresa.php	/^    protected $fillable = [ 'documento_id' ];$/;"	variable	line:13
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/MaquinaEmpresa.php	/^    public $timestamps = false;$/;"	variable	line:15
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/MaquinaEmpresa.php	/^    public $timestamps = false;$/;"	variable	line:15
+MaquinariaExterna	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaExterna.php	/^class MaquinariaExterna extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaExterna.php	/^    protected $table = 'maquinaria_ext';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaExterna.php	/^    protected $table = 'maquinaria_ext';$/;"	variable	line:9
+primaryKey	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaExterna.php	/^    protected $primaryKey = 'maquina_id';$/;"	variable	line:11
+primaryKey	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaExterna.php	/^    protected $primaryKey = 'maquina_id';$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaExterna.php	/^    protected $fillable = [ 'maquina_id', 'empresa_id' ];$/;"	variable	line:13
+fillable	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaExterna.php	/^    protected $fillable = [ 'maquina_id', 'empresa_id' ];$/;"	variable	line:13
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaExterna.php	/^    public $timestamps = false;$/;"	variable	line:15
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaExterna.php	/^    public $timestamps = false;$/;"	variable	line:15
+MaquinariaEmpresa	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaEmpresa.php	/^class MaquinariaEmpresa extends Model$/;"	class	line:7
+table	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaEmpresa.php	/^    protected $table = 'maquinaria_emp';$/;"	variable	line:9
+table	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaEmpresa.php	/^    protected $table = 'maquinaria_emp';$/;"	variable	line:9
+fillable	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaEmpresa.php	/^    protected $fillable = [ 'maquina_id' ];$/;"	variable	line:11
+fillable	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaEmpresa.php	/^    protected $fillable = [ 'maquina_id' ];$/;"	variable	line:11
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaEmpresa.php	/^    public $timestamps = false;$/;"	variable	line:13
+timestamps	/Users/danielmunoz/Projects/cae/app/Models/MaquinariaEmpresa.php	/^    public $timestamps = false;$/;"	variable	line:13
+MaquinariaEmpresaController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaEmpresaController.php	/^class MaquinariaEmpresaController extends Controller$/;"	class	line:9
+index	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaEmpresaController.php	/^    public function index()$/;"	function	line:16
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaEmpresaController.php	/^    public function create()$/;"	function	line:26
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaEmpresaController.php	/^    public function store(Request $request)$/;"	function	line:37
+show	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaEmpresaController.php	/^    public function show($id)$/;"	function	line:48
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaEmpresaController.php	/^    public function edit($id)$/;"	function	line:59
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaEmpresaController.php	/^    public function update(Request $request, $id)$/;"	function	line:71
+destroy	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaEmpresaController.php	/^    public function destroy($id)$/;"	function	line:82
+MaquinariaExternaController	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaExternaController.php	/^class MaquinariaExternaController extends Controller$/;"	class	line:9
+index	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaExternaController.php	/^    public function index()$/;"	function	line:16
+create	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaExternaController.php	/^    public function create()$/;"	function	line:26
+store	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaExternaController.php	/^    public function store(Request $request)$/;"	function	line:37
+show	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaExternaController.php	/^    public function show($id)$/;"	function	line:48
+edit	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaExternaController.php	/^    public function edit($id)$/;"	function	line:59
+update	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaExternaController.php	/^    public function update(Request $request, $id)$/;"	function	line:71
+destroy	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Maquinas/MaquinariaExternaController.php	/^    public function destroy($id)$/;"	function	line:82
+save_document	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    public function save_document(Request $request)$/;"	function	line:21
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $fields = $request->all();$/;"	variable	line:23
+file	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $file = Input::file('file');$/;"	variable	line:24
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $validator = $this->documents_validator($fields);$/;"	variable	line:27
+extension	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^            $extension = $file->getClientOriginalExtension();$/;"	variable	line:34
+filename	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^            $filename = $file->getFilename() . '.' . $extension;$/;"	variable	line:35
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^            $documento = Documento::create($fields);$/;"	variable	line:43
+edit_view	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/ public function edit_view($base_route, $id)$/;"	function	line:64
+tipos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $tipos = TipoDocumento::lists('nombre', 'id');$/;"	variable	line:66
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $documento = Documento::findOrFail($id);$/;"	variable	line:67
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $tags = $documento->tagListNormalized;$/;"	variable	line:68
+tipo_caducidad	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $tipo_caducidad = $documento->tipoCaducidad();$/;"	variable	line:70
+caducidad	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $caducidad = $documento->tipoCaducidadString();$/;"	variable	line:71
+filename	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $filename = Fichero::findOrFail($documento->file_id)->original_filename;$/;"	variable	line:73
+update_document	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    public function update_document(Request $request)$/;"	function	line:78
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $fields = $request->all();$/;"	variable	line:80
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $validator = $this->documents_validator($fields, false);$/;"	variable	line:82
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $documento = Documento::findOrFail($fields['id']);$/;"	variable	line:87
+generateDatatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    public function generateDatatable(Request $request, $documentos)$/;"	function	line:101
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $datatable = $this->defaultDatatable($documentos);$/;"	variable	line:103
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                    $documentos = $documentos->withAllTags($search_term);$/;"	variable	line:108
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                    $datatable = $this->defaultDatatable($documentos);$/;"	variable	line:109
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                    $datatable = $datatable->filter(function ($query) use ($request) {} );$/;"	variable	line:110
+defaultDatatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function defaultDatatable($documentos)$/;"	function	line:118
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $datatable = Datatables::of($documentos)$/;"	variable	line:120
+tipo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                                    $tipo = TipoDocumento::findOrFail($documento->tipo_documento_id);$/;"	variable	line:122
+status	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                                    $status = $documento->statusCaducidad();$/;"	variable	line:126
+actionsColumn	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function actionsColumn($documento)$/;"	function	line:151
+tagsColumn	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function tagsColumn($documento)$/;"	function	line:159
+html	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $html = '';$/;"	variable	line:161
+documents_validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function documents_validator(array $data, $file_required = true)$/;"	function	line:172
+file_required	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function documents_validator(array $data, $file_required = true)$/;"	variable	line:172
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $validator = Validator::make($data, [$/;"	variable	line:174
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $fields_names = [$/;"	variable	line:183
+create_view_name	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function create_view_name()$/;"	function	line:200
+edit_view_name	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function edit_view_name()$/;"	function	line:205
+save_file	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function save_file($file)$/;"	function	line:214
+file	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $file = Input::file('file');$/;"	variable	line:216
+extension	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $extension = $file->getClientOriginalExtension();$/;"	variable	line:217
+filename	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $filename = $file->getFilename() . '.' . $extension;$/;"	variable	line:218
+fichero	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^		$fichero = new Fichero();$/;"	variable	line:221
+removeDocument	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    public function removeDocument($id)$/;"	function	line:236

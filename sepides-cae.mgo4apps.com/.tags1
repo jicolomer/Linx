@@ -1,0 +1,48 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+save_document	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    public function save_document(Request $request)$/;"	function	line:21
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $fields = $request->all();$/;"	variable	line:23
+file	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $file = Input::file('file');$/;"	variable	line:24
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $validator = $this->documents_validator($fields);$/;"	variable	line:27
+extension	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^            $extension = $file->getClientOriginalExtension();$/;"	variable	line:34
+filename	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^            $filename = $file->getFilename() . '.' . $extension;$/;"	variable	line:35
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^            $documento = Documento::create($fields);$/;"	variable	line:43
+edit_view	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/ public function edit_view($base_route, $id)$/;"	function	line:64
+tipos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $tipos = TipoDocumento::lists('nombre', 'id');$/;"	variable	line:66
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $documento = Documento::findOrFail($id);$/;"	variable	line:67
+tags	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $tags = $documento->tagListNormalized;$/;"	variable	line:68
+tipo_caducidad	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $tipo_caducidad = $documento->tipoCaducidad();$/;"	variable	line:70
+caducidad	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $caducidad = $documento->tipoCaducidadString();$/;"	variable	line:71
+filename	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    \/\/     $filename = Fichero::findOrFail($documento->file_id)->original_filename;$/;"	variable	line:73
+update_document	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    public function update_document(Request $request)$/;"	function	line:78
+fields	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $fields = $request->all();$/;"	variable	line:80
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $validator = $this->documents_validator($fields, false);$/;"	variable	line:82
+documento	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $documento = Documento::findOrFail($fields['id']);$/;"	variable	line:87
+generateDatatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    public function generateDatatable(Request $request, $documentos)$/;"	function	line:101
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $datatable = $this->defaultDatatable($documentos);$/;"	variable	line:103
+documentos	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                    $documentos = $documentos->withAllTags($search_term);$/;"	variable	line:108
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                    $datatable = $this->defaultDatatable($documentos);$/;"	variable	line:109
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                    $datatable = $datatable->filter(function ($query) use ($request) {} );$/;"	variable	line:110
+defaultDatatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function defaultDatatable($documentos)$/;"	function	line:118
+datatable	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $datatable = Datatables::of($documentos)$/;"	variable	line:120
+tipo	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                                    $tipo = TipoDocumento::findOrFail($documento->tipo_documento_id);$/;"	variable	line:122
+status	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^                                    $status = $documento->statusCaducidad();$/;"	variable	line:126
+actionsColumn	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function actionsColumn($documento)$/;"	function	line:151
+tagsColumn	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function tagsColumn($documento)$/;"	function	line:159
+html	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $html = '';$/;"	variable	line:161
+documents_validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function documents_validator(array $data, $file_required = true)$/;"	function	line:172
+file_required	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function documents_validator(array $data, $file_required = true)$/;"	variable	line:172
+validator	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $validator = Validator::make($data, [$/;"	variable	line:174
+fields_names	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $fields_names = [$/;"	variable	line:183
+create_view_name	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function create_view_name()$/;"	function	line:200
+edit_view_name	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function edit_view_name()$/;"	function	line:205
+save_file	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    private function save_file($file)$/;"	function	line:214
+file	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $file = Input::file('file');$/;"	variable	line:216
+extension	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $extension = $file->getClientOriginalExtension();$/;"	variable	line:217
+filename	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^        $filename = $file->getFilename() . '.' . $extension;$/;"	variable	line:218
+fichero	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^		$fichero = new Fichero();$/;"	variable	line:221
+removeDocument	/Users/danielmunoz/Projects/cae/app/Http/Controllers/Documentos/DocumentosTrait.php	/^    public function removeDocument($id)$/;"	function	line:236

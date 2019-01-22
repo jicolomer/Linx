@@ -6,7 +6,11 @@
  * By Nacho 2
  * By Nacho 3
  *4
+<<<<<<< HEAD
  * juanra
+=======
+ * 22012019 de vuelta
+>>>>>>> e47a7c4e38be3303117a0c770e98ba9fbcad4f8a
  * @package  Laravel
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */

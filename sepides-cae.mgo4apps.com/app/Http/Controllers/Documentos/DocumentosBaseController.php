@@ -25,7 +25,9 @@ class DocumentosBaseController extends \App\Http\Controllers\Base\BaseController
             return "Se te ha olvidado el ámbito!!";
         }
 
-        $tipos_documentos = TipoDocumento::where('ambito', '=', $external_data['ambito'])->pluck('nombre', 'id');
+        $tipos_documentos = TipoDocumento::where('ambito', '=', $external_data['ambito'])
+        ->where('activo', '=', '1')
+        ->pluck('nombre', 'id');
 
         $data = compact('tipos_documentos');
 
